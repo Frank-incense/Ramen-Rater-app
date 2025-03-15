@@ -3,11 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramen Rating</title>
+    <title>Ramen Rating app</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/JavaScript" src="index.js"></script>
 </head>
 <body>
-    
+    <header id="header">
+        <h1>Ramen Rater</h1>
+        <div class="btn">
+            <a href="#add-review">Add Review</a>
+        </div>
+    </header>
+    <div class="line"></div>
+    <main id="main">
+        <nav id="navigation">
+            <ul id="restaurantList">
+
+            </ul>
+        </nav>
+        <!-- <div class="line"></div> -->
+         <section>
+            <div id="img-container">
+                <div class="images">
+                    <img src="images/" alt="" id="1">
+                </div>
+                <div class="images">
+                    <img src="images/" alt="" id="2">
+                </div>
+                <div class="images">
+                    <img src="images/" alt="" id="3">
+                </div>
+                <div class="images">
+                    <img src="images/" alt="" id="4">
+                </div>
+                <div class="images">
+                    <img src="images/" alt="" id="5">
+                </div>
+
+            </div>
+         </section>
+        
+        
+    </main>
+    <footer id="footer">
+        <div class="border">
+            <p>Add New Reviews</p>
+        </div>
+        <div id="add-review">
+            <form id="form">
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" id="name">
+                <label for="restaurant">Restaurant:</label><br>
+                <input type="text" name="restaurant" id="restaurant">
+                <label for="imageLink">Image:</label><br>
+                <input type="url" name="image" id="imageLink">
+                <label for="rating">Rating:</label><br>
+                <input type="text" name="rating" id="rating">
+                <label for="comment">Comment:</label><br>
+                 <textarea name="comment" id="comment"></textarea>
+                <input type="submit" name="submit" id="submit" value="Post">
+            </form>
+        </div>
+
+    </footer>
 </body>
 </html>
