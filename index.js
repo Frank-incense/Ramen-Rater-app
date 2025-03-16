@@ -83,13 +83,25 @@ function handleClick(e){
 
 function addSubmitListener(){
     const form = document.getElementById("form")
-    form.addEventListener('submit')
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        let picture = {id: ramens.length+1}
+        const children = e.target.children
+        for (let child of children){
+            if (child.id && child.id !== "submit"){
+                
+                picture[child.id] = child.value
+            }
+        }
+        ramens.push(picture)
+        console.log(ramens)
+    })
 }
  
 function main(){
-    document.addEventListener("DOMContentLoaded", function(){
-        displayRamens();
+    document.addEventListener("DOMContentLoaded", function(){  
         addSubmitListener();
+        displayRamens();
     })
 }
 
