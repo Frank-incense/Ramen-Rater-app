@@ -19,7 +19,9 @@ const ramens = [
         id: 3, 
         name: "Kojiro Ramen", 
         restaurant: "Ramen-ya", 
-        image: "images/kojiro.jpg" 
+        image: "images/kojiro.jpg",
+        rating: 4, 
+        comment: "Very flavorful!" 
     },
     { 
         id: 4, 
@@ -48,39 +50,46 @@ const ramens = [
  ];
 
 function displayRamens(){
+    const ramenMenu = document.getElementById("ramen-menu")
     ramens.forEach(function(picture){
-        addpicture(picture)
-    })   
+        const p = document.createElement("p")
+        const imageDiv = document.createElement('div')
+        const image = document.createElement('img');
+        imageDiv.appendChild(image)
+        imageDiv.appendChild(p)
+        image.src = picture.image;
+        image.id = picture.id;
+        ramenMenu.appendChild(imageDiv);
+        image.addEventListener('click', handleClick);
+    })
+}
+function handleClick(e){
+    const image = e.target
+    const parent = image.parentNode
+    const sibling = image.nextSibling
+    ramens.forEach(function(picture){
+        if (picture.id === Number(image.id)){
+            if (sibling.innerHTML === ""){
+                sibling.innerHTML = ` <span>Name: ${picture.name}</span><br>
+                                <span>Restaurant: ${picture.restaurant}</span><br>
+                                <span>Rating: ${picture.rating}</span><br>`;
+            }
+            else {
+                sibling.innerHTML = "";
+            }
+        }
+    })
+}
+
+function addSubmitListener(){
+    const form = document.getElementById("form")
+    form.addEventListener('submit')
 }
  
-function addpicture(picture) {
-    const imageContainer = document.getElementById("ramen-menu")
-    const menuItem = document.createElement('div')
-    const image = document.createElement('img');
-    menuItem.appendChild(image)
-    buildRamen(menuItem, picture)
-    image.src = picture.image
-    image.id = picture.id
-    image.alt = picture.name
-    imageContainer.appendChild(menuItem)
-}
-function buildRamen(card, picture){
-    const p = document.createElement('p');
-    p.textContent = picture.name
-    card.appendChild(p)
-    card.style.textAlign = "center";
-}
-
-function handleClick(e){
-    console.log(e.target)
-}
-function addSubmitListener(){
-
-}
 function main(){
     document.addEventListener("DOMContentLoaded", function(){
         displayRamens();
-        document.addEventListener("click", handleClick)
+        addSubmitListener();
     })
 }
 

@@ -35,16 +35,32 @@ img{
     max-width: 350px;
     height: 300px;
     object-fit: cover;
-    margin: 15px;
+    margin: 15px auto;
     border-radius: 10px;
 }
 #ramen-menu {
     width: 80%;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;  
+    grid-template-columns: 1fr 1fr 1fr;  
+}
+@media only screen and (max-width: 1500px){
+    #ramen-menu {
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;  
+    }
 }
 
+@media only screen and (max-width: 1000px){
+    #ramen-menu {
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;  
+    }
+}
 footer {
     width: 100%;
     margin-bottom: 25px;
@@ -68,6 +84,10 @@ footer {
     margin: 15px auto;
     align-content: center;
 }
+form {
+    width: 80%;
+    margin: auto;
+}
 
 label{
     margin-top: 10px;
@@ -75,12 +95,24 @@ label{
 
 input{
     display: block;
-    width: 300px;
+    width: 350px;
     margin-top: 5px;
-    padding: 5px;
+    padding-left: 4px;
+    font-size: 1em;
+    background-color: #fbfbfc;
+    border: 1px solid ;
+    border-radius: 5px;
 }
 
 textarea{
-    width: 300px;
-    height: 50px;
+    width: 350px;
+    height: 70px;
+    background-color: #fbfbfc;
+    border-radius: 10px;
+    border: 1px solid ;
+}
+input[type="submit"]{
+    background-color: #000;
+    color: #fbfbfc;
+
 }
