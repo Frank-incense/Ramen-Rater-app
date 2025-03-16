@@ -37,46 +37,40 @@ const ramens = [
         rating: 4, 
         comment: "Very flavorful!" 
     },
+    { 
+        id: 6, 
+        name: "Tsukemen Ramen", 
+        restaurant: "Ichiran", 
+        image: "images/tsukemen.jpg", 
+        rating: 4, 
+        comment: "Very flavorful!" 
+    },
  ];
-const restaurants = []
+
 function displayRamens(){
     ramens.forEach(function(picture){
-        addrestaurant(picture)
-        
         addpicture(picture)
-
     })   
 }
  
 function addpicture(picture) {
-    const imageContainer = document.getElementById("img-container")
+    const imageContainer = document.getElementById("ramen-menu")
+    const menuItem = document.createElement('div')
     const image = document.createElement('img');
+    menuItem.appendChild(image)
+    buildRamen(menuItem, picture)
     image.src = picture.image
     image.id = picture.id
     image.alt = picture.name
-    imageContainer.appendChild(image)
+    imageContainer.appendChild(menuItem)
 }
-function addrestaurant(picture){
-    const restaurant = document.getElementById("restaurantList")
-    const li = document.createElement("li");
-    if (!check(picture.restaurant)){
-        restaurant.appendChild(li)
-        restaurants.push(picture.restaurant)
-    }
-    li.textContent = picture.restaurant;
-    // console.log(restaurants)
- }
- function check(name)
-{
-    for (let restaurant of restaurants){
-        if (restaurant === name)
-        {
-            return true;
-        }
-    }
-    return false
+function buildRamen(card, picture){
+    const p = document.createElement('p');
+    p.textContent = picture.name
+    card.appendChild(p)
+    card.style.textAlign = "center";
+}
 
-} 
 function handleClick(e){
     console.log(e.target)
 }

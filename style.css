@@ -2,73 +2,54 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 1px solid; */
 }
 
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.2em;
-    /* height: 100vh; */
+}
+.line{
+    width: 90%;
+    height: 5px;
+    background-color: #000;
+    margin: 20px auto;
+    border-radius: 50%;
+
 }
 #header {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     width: 100%;
     align-items: center;
     padding: 15px;
-    border-bottom: 2px solid;
-    background-color: #fafafa;
+    background-color: #fbfbfc;
     z-index: 1;
 }
-.btn {
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: black;
-}
-.btn a {
-    text-decoration: none;
-    color: aliceblue;
+h1{
+    font-size: 4em;
+    padding: 5px;
+    font-weight: 300;
 }
 
-#main {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-}
-nav{
-    border-right: 2px solid;
-
-}
-ul li {
-    padding: 15px;
-    border-bottom: 1px solid;
-}
 img{
-    max-width: 400px;
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: cover;
     margin: 15px;
     border-radius: 10px;
-    background-size: cover;
 }
-
-#img-container {
+#ramen-menu {
+    width: 80%;
+    margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin:auto;    
+    grid-template-columns: 1fr 1fr;  
 }
 
-@media only screen and (max-width: 1000px){
-    #img-container{
-        /* width: 70%; */
-        display: grid;
-        grid-template-columns: 45% 45%;
-        column-gap: 20px;
-    }
-    
-}
 footer {
     width: 100%;
-    border-top: 1px solid;
     margin-bottom: 25px;
 }
+
 .border{
     width: 50%;
     background-color: #000;
@@ -76,20 +57,29 @@ footer {
     margin: auto;
     font-size: 1.2em;
 }
+
+.border p{
+    width: 100%;
+    text-align: center;
+}
+
 #add-review{
     width: 25%;
     margin: 15px auto;
     align-content: center;
 }
+
 label{
     margin-top: 10px;
 }
+
 input{
     display: block;
     width: 300px;
     margin-top: 5px;
     padding: 5px;
 }
+
 textarea{
     width: 300px;
     height: 50px;
