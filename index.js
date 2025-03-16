@@ -39,19 +39,24 @@ const ramens = [
     },
  ];
 const restaurants = []
- document.addEventListener("DOMContentLoaded", function(){
+function displayRamens(){
     ramens.forEach(function(picture){
         addrestaurant(picture)
         
         addpicture(picture)
 
-    })
- })
- function addpicture(picture) {
-    const image = document.getElementById(picture.id);
+    })   
+}
+ 
+function addpicture(picture) {
+    const imageContainer = document.getElementById("img-container")
+    const image = document.createElement('img');
     image.src = picture.image
- }
- function addrestaurant(picture){
+    image.id = picture.id
+    image.alt = picture.name
+    imageContainer.appendChild(image)
+}
+function addrestaurant(picture){
     const restaurant = document.getElementById("restaurantList")
     const li = document.createElement("li");
     if (!check(picture.restaurant)){
@@ -72,3 +77,17 @@ const restaurants = []
     return false
 
 } 
+function handleClick(e){
+    console.log(e.target)
+}
+function addSubmitListener(){
+
+}
+function main(){
+    document.addEventListener("DOMContentLoaded", function(){
+        displayRamens();
+        document.addEventListener("click", handleClick)
+    })
+}
+
+main()
