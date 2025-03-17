@@ -61,10 +61,14 @@ function displayRamens(){
         image.id = picture.id;
         ramenMenu.appendChild(imageDiv);
         image.addEventListener('click', handleClick);
+        console.log(image)
     })
+    
 }
 function handleClick(e){
+    console.log(e)
     const image = e.target
+    debugger
     const parent = image.parentNode
     const sibling = image.nextSibling
     ramens.forEach(function(picture){
@@ -85,7 +89,14 @@ function addSubmitListener(){
     const form = document.getElementById("form")
     form.addEventListener('submit', function(e){
         e.preventDefault();
+        let ramenMenu = document.getElementById("ramen-menu")
         let picture = {id: ramens.length+1}
+        const p = document.createElement("p")
+        let div = document.createElement('div')
+        let image = document.createElement('img')
+        div.appendChild(image)
+        div.appendChild(p)
+        ramenMenu.appendChild(div)
         const children = e.target.children
         for (let child of children){
             if (child.id && child.id !== "submit"){
@@ -93,8 +104,10 @@ function addSubmitListener(){
                 picture[child.id] = child.value
             }
         }
+        image.src = picture.image
+        image.id = picture.id
+        image.addEventListener('click', handleClick)
         ramens.push(picture)
-        console.log(ramens)
     })
 }
  
