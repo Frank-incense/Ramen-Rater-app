@@ -30,19 +30,24 @@ h1{
     font-weight: 300;
 }
 
-img{
-    width: 100%;
-    max-width: 350px;
-    height: 300px;
-    object-fit: cover;
-    margin: 15px auto;
-    border-radius: 10px;
-}
+
 #ramen-menu {
     width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;  
+}
+/* #ramen-menu div {
+    width: 350px;
+    margin: auto;
+} */
+img{
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 15px auto;
+    border-radius: 10px;
 }
 @media only screen and (max-width: 1500px){
     #ramen-menu {
@@ -50,6 +55,14 @@ img{
         margin: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;  
+    }
+    img{
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: 15px auto;
+        border-radius: 10px;
     }
 }
 
@@ -59,6 +72,14 @@ img{
         margin: auto;
         display: grid;
         grid-template-columns: 1fr;  
+    }
+    img{
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: 15px auto;
+        border-radius: 10px;
     }
 }
 footer {

@@ -52,31 +52,26 @@ const ramens = [
 function displayRamens(){
     const ramenMenu = document.getElementById("ramen-menu")
     ramens.forEach(function(picture){
-        const p = document.createElement("p")
-        const imageDiv = document.createElement('div')
-        const image = document.createElement('img');
+        const {imageDiv, image, p} = bulidpicture()
         imageDiv.appendChild(image)
         imageDiv.appendChild(p)
         image.src = picture.image;
         image.id = picture.id;
         ramenMenu.appendChild(imageDiv);
         image.addEventListener('click', handleClick);
-        console.log(image)
     })
     
 }
 function handleClick(e){
-    console.log(e)
     const image = e.target
-    debugger
-    const parent = image.parentNode
     const sibling = image.nextSibling
     ramens.forEach(function(picture){
         if (picture.id === Number(image.id)){
             if (sibling.innerHTML === ""){
                 sibling.innerHTML = ` <span>Name: ${picture.name}</span><br>
                                 <span>Restaurant: ${picture.restaurant}</span><br>
-                                <span>Rating: ${picture.rating}</span><br>`;
+                                <span>Rating: ${picture.rating}</span><br>
+                                <span>Comment: ${picture.comment}</span><br>`;
             }
             else {
                 sibling.innerHTML = "";
@@ -90,16 +85,14 @@ function addSubmitListener(){
     form.addEventListener('submit', function(e){
         e.preventDefault();
         let ramenMenu = document.getElementById("ramen-menu")
+        const {imageDiv,image, p} = bulidpicture()
         let picture = {id: ramens.length+1}
-        const p = document.createElement("p")
-        let div = document.createElement('div')
-        let image = document.createElement('img')
-        div.appendChild(image)
-        div.appendChild(p)
-        ramenMenu.appendChild(div)
+        imageDiv.appendChild(image)
+        imageDiv.appendChild(p)
+        ramenMenu.appendChild(imageDiv)
         const children = e.target.children
         for (let child of children){
-            if (child.id && child.id !== "submit"){
+            if (child.id !== "submit"){
                 
                 picture[child.id] = child.value
             }
@@ -108,14 +101,19 @@ function addSubmitListener(){
         image.id = picture.id
         image.addEventListener('click', handleClick)
         ramens.push(picture)
+        form.reset()
     })
 }
- 
-function main(){
-    document.addEventListener("DOMContentLoaded", function(){  
-        addSubmitListener();
-        displayRamens();
-    })
+function bulidpicture(){
+    const p = document.createElement("p")
+    const imageDiv = document.createElement('div')
+    const image = document.createElement('img');
+    return{imageDiv, image, p}
 }
 
-main()
+document.addEventListener("DOMContentLoaded", function main(){  
+    addSubmitListener();
+    displayRamens();
+})
+
+
